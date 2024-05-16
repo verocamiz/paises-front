@@ -37,8 +37,8 @@
 
           <tr *ngFor="let item of list">
             <td >{{item.nombre}}</td>
-            <td >{{item.poblacion |number}}</td>
-            <td >{{item.porcentaje | percent}}</td>
+            <td >{{item.poblacion}}</td>
+            <td >{{item.porcentaje}}</td>
           </tr>
           <tr *ngIf="!list ||list?.length == 0">
             <td colspan="5" class="text-center" > No se encontraron resultados</td>

@@ -22,13 +22,16 @@ export class PaisesComponent {
   onSearch(){
     let queryString: string = this.form.get('searchInput')?.value;
 
-    if (!queryString) return;
+    if( !queryString ||queryString.length < 3) {
+      this.toastr.warning('Debe tener mas de 3 caracteres.')
+      return;
+    }
 
     this.paisesService.getPaises(queryString).subscribe({
       next: res => {
        this.list = res;
       },
-     // error: error => this.toastr.error('Error while trying to complete the operation.')
+     error: error => this.toastr.error('Error while trying to complete the operation.')
 
     });
   }
